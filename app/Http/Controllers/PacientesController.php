@@ -25,7 +25,6 @@ class PacientesController extends Controller
      */
     public function create()
     {
-        //
         $method = 'post';
         $paciente = new Paciente();
         return view('pacientes.form')->with('method', $method)
@@ -57,12 +56,7 @@ class PacientesController extends Controller
             $paciente->save();
 
             return redirect()->route('pacientes.index');
-
-
-
         }
-        
-
     }
 
     /**
@@ -116,9 +110,6 @@ class PacientesController extends Controller
             $paciente->save();
 
             return redirect()->route('pacientes.index');
-
-
-
         }
     }
 

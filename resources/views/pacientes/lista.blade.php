@@ -41,7 +41,7 @@
                         </tbody>
                     </table>
                     @else
-                        <h2>Não tem pacientes</h2>
+                    <p>Não há pacientes cadastrados no momento!</p>
                     @endif
 
                 </div>
