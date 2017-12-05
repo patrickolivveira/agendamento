@@ -8376,3 +8376,27 @@ button.close {
   height: 55px;
 }
 
+body,
+html {
+  background-image: url(/img/bg-default.jpg);
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  background-size: 100% 100%;
+}
+
+.form-logo {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 35px;
+}
+
+.dash {
+  background-color: rgba(51, 153, 255, 0.8);
+  color: #FFF;
+}
+
+.dash-qtde {
+  font-size: 48px;
+}
+

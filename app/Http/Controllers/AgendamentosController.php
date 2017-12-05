@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Agendamento;
+use App\Paciente;
+use App\Medico;
 use Illuminate\Http\Request;
 
 class AgendamentosController extends Controller
@@ -13,7 +16,8 @@ class AgendamentosController extends Controller
      */
     public function index()
     {
-        //
+        $agendamentos = Agendamento::all();
+        return view('agendamentos.lista')->with('agendamentos', $agendamentos);
     }
 
     /**
@@ -23,9 +27,15 @@ class AgendamentosController extends Controller
      */
     public function create()
     {
-        $pacientes = \App\Paciente::all();
+        $method = 'post';
+        $agendamento = new Agendamento();
+        $pacientes = Paciente::all();
+        $medicos = Medico::all();
 
-        return view('agendamentos.form')->with('pacientes', $pacientes);
+        return view('agendamentos.form')->with('pacientes', $pacientes)
+                                        ->with('medicos', $medicos)
+                                        ->with('method', $method)
+                                        ->with('agendamento', $agendamento);
     }
 
     /**
@@ -36,7 +46,22 @@ class AgendamentosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = \Validator::make($request->all(), [
+            'descricao' => 'required|min:5',
+            'datahora' => 'required',
+        ]);
+        if ($validator->fails()) {
+            return back()->withErrors($validator);
+        } else {
+            $agendamento = new Agendamento();
+            $agendamento->descricao = $request->input('descricao');
+            $agendamento->datahora = $request->input('datahora');
+            $agendamento->id_paciente = $request->input('paciente_id');
+            $agendamento->id_medico = $request->input('medico_id');
+            $agendamento->save();
+
+            return redirect()->route('agendamentos.index');
+        }
     }
 
     /**
@@ -58,7 +83,10 @@ class AgendamentosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $method = 'put';
+        $agendamento = Agendamento::find($id);
+        return view('agendamentos.form')->with('method', $method)
+        ->with('agendamento', $agendamento);
     }
 
     /**
@@ -70,7 +98,22 @@ class AgendamentosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validator = \Validator::make($request->all(), [
+            'descricao' => 'required|min:5',
+            'datahora' => 'required',
+        ]);
+        if ($validator->fails()) {
+            return back()->withErrors($validator);
+        } else {
+            $agendamento = Agendamento::find($id);
+            $agendamento->descricao = $request->input('descricao');
+            $agendamento->datahora = $request->input('datahora');
+            $agendamento->id_paciente = $request->input('paciente_id');
+            $agendamento->id_medico = $request->input('medico_id');
+            $agendamento->save();
+
+            return redirect()->route('agendamentos.index');
+        }
     }
 
     /**
@@ -81,6 +124,10 @@ class AgendamentosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $agendamento = Agendamento::find($id);
+        
+        $agendamento->delete();
+
+        return redirect()->route('agendamentos.index');
     }
 }

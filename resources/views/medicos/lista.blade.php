@@ -9,16 +9,17 @@
             <div class="panel panel-default">
                 <div class="panel-heading painel_cab">
                     Médicos
-                    <a class="btn btn-info pull-right" href="{{ route('medicos.create') }}">Novo</a>
+                    <a class="btn btn-primary pull-right" href="{{ route('medicos.create') }}">Novo</a>
                 </div>
                 <div class="panel-body">
                     @if(count($medicos) > 0)
-                    <table id="medico_table">
+                    <table id="medico_table" class="display" cellspacing="0" width="100%">
                         <thead>
                             <tr>
                                 <th>Id</th>
                                 <th>Nome</th>
                                 <th>CRM</th>
+                                <th>Telefone</th>
                                 <th></th>
                                 <th></th>
                             </tr>
@@ -29,6 +30,7 @@
                                 <td>{{ $medico->id }}</td>
                                 <td>{{ $medico->nome }}</td>
                                 <td>{{ $medico->crm }}</td>
+                                <td>{{ $medico->telefone }}</td>
                                 <td><a href="{{ route('medicos.edit', $medico->id) }}" class="btn btn-primary"> Editar </a></td>
                                  <td>
                                     <form action="{{ route('medicos.destroy', $medico->id ) }}" method="POST">

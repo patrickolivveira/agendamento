@@ -41,8 +41,8 @@
                             <input id="telefone" type="text" name="telefone" value="{{ $medico->telefone }}" class="form-control"/>
                         </div>
 
-                        <button type="submit" class="btn btn-success">Salvar</button>
-                        <a class="btn btn-danger" href="{{ url('/medicos') }}">Voltar</a>
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                        <a class="btn btn-default" href="{{ url('/medicos') }}">Voltar</a>
                     </form>
                 </div>
             </div>

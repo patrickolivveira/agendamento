@@ -54,8 +54,8 @@
                             <input id="endereco" type="text" name="endereco" value="{{ $paciente->endereco }}" class="form-control"/>
                         </div>                        
 
-                        <button type="submit" class="btn btn-success">Salvar</button>
-                        <a class="btn btn-danger" href="{{ url('/pacientes') }}">Voltar</a>
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                        <a class="btn btn-default" href="{{ url('/pacientes') }}">Voltar</a>
                     </form>
                 </div>
             </div>

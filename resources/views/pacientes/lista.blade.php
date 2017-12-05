@@ -9,15 +9,16 @@
             <div class="panel panel-default">
                 <div class="panel-heading painel_cab">
                     Pacientes
-                    <a class="btn btn-info pull-right" href="{{ route('pacientes.create') }}">Novo</a>
+                    <a class="btn btn-primary pull-right" href="{{ route('pacientes.create') }}">Novo</a>
                 </div>
                 <div class="panel-body">
                     @if(count($pacientes) > 0)
-                    <table id="paciente_table">
+                    <table id="paciente_table" class="display" cellspacing="0" width="100%">
                         <thead>
                             <tr>
                                 <th>Id</th>
                                 <th>Nome</th>
+                                <th>Telefone</th>
                                 <th></th>
                                 <th></th>
                             </tr>
@@ -27,6 +28,7 @@
                             <tr>
                                 <td>{{ $paciente->id }}</td>
                                 <td>{{ $paciente->nome }}</td>
+                                <td>{{ $paciente->telefone }}</td>
                                 <td><a href="{{ route('pacientes.edit', $paciente->id) }}" class="btn btn-primary"> Editar </a></td>
                                  <td>
                                     <form action="{{ route('pacientes.destroy', $paciente->id ) }}" method="POST">
@@ -56,7 +58,10 @@
 <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <script>
 $(document).ready(function(){
-    $('#paciente_table').DataTable();
+    $('#paciente_table')
+                        .DataTable();
+                        // .removeClass( 'display' )
+		                // .addClass('table table-striped table-bordered');
 });
 </script>
 @endif
