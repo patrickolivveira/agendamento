@@ -6,6 +6,7 @@ use App\Paciente;
 use App\Medico;
 use App\Agendamento;
 use Illuminate\Http\Request;
+use DB;
 
 class HomeController extends Controller
 {
@@ -28,8 +29,11 @@ class HomeController extends Controller
     {
         $num_pacientes = Paciente::count();
         $num_medicos = Medico::count();
-        $consultas_hoje = 666;
-        // $consultas_hoje = Agendamento::where('datahora->format("Y-m-d")','=','TODAY')->count();
+        //$consultas_hoje = Agendamentos::count();
+        $consultas_hoje = DB::table('agendamentos')
+                                ->whereDate('datahora', date('Y-m-d'))
+                                ->count();
+        //DB::select('select count(*) as qtd from agendamentos where id = 5');
 
         return view('home')->with('num_pacientes', $num_pacientes)
                             ->with('num_medicos', $num_medicos)

@@ -61,7 +61,7 @@
 						</div>
 						<a href="{{ route('agendamentos.index') }}">
 							<div class="panel-footer">
-								<span class="pull-left">Agendamento de consultas de hoje</span>
+								<span class="pull-left">Agendamento cadastrados </span>
 								<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
 								<div class="clearfix"></div>
 							</div>

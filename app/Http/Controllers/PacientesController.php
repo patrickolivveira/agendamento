@@ -40,8 +40,9 @@ class PacientesController extends Controller
     public function store(Request $request)
     {
         $validator = \Validator::make($request->all(), [
-            'nome' => 'required|min:6',
+            'nome' => 'required|min:3',
             'data_nascimento' => 'required',
+            'telefone' => 'required',
         ]);
         if ($validator->fails()) {
             return back()->withErrors($validator);
@@ -96,6 +97,7 @@ class PacientesController extends Controller
         $validator = \Validator::make($request->all(), [
             'nome' => 'required|min:6',
             'data_nascimento' => 'required',
+            'telefone' => 'required',
         ]);
         if ($validator->fails()) {
             return back()->withErrors($validator);

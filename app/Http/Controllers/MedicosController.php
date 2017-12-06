@@ -48,6 +48,7 @@ class MedicosController extends Controller
         $validator = \Validator::make($request->all(), [
             'nome' => 'required|min:3',
             'crm' => 'required',
+            'telefone' => 'required',
         ]);
         if ($validator->fails()) {
             return back()->withErrors($validator);
@@ -99,6 +100,7 @@ class MedicosController extends Controller
         $validator = \Validator::make($request->all(), [
             'nome' => 'required|min:3',
             'crm' => 'required',
+            'telefone' => 'required',
         ]);
         if ($validator->fails()) {
             return back()->withErrors($validator);

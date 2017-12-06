@@ -33,14 +33,14 @@
 
                         <div class="form-group">
                             <label for="datahora">Data/Hora</label>
-                            <input id="datahora" type="datetime-local" name="datahora" class="form-control" value="{{ $agendamento->datahora }}"/>
+                            <input id="datahora" type="datetime-local" name="datahora" class="form-control" value="{{ strftime('%Y-%m-%dT%H:%M', strtotime($agendamento->datahora)) }}"/>
                         </div>                        
 
                         <div class="form-group">
                             <label for="paciente_id">Paciente</label>
                             <select name="paciente_id" class="form-control" id="paciente_id" value="{{ $agendamento->id_paciente }}">
                                 @foreach($pacientes as $paciente)
-                                    <option value="{{ $paciente->id }}"> {{ $paciente->nome }} </option>
+                                    <option value="{{ $paciente->id }}" {{ $paciente->id == $agendamento->id_paciente ? 'selected="selected"' : ''}}> {{ $paciente->nome }} </option>
                                 @endforeach
                             </select>
                         </div>
@@ -49,7 +49,7 @@
                             <label for="medico_id">Médico</label>
                             <select name="medico_id" class="form-control" id="medico_id" value="{{ $agendamento->id_medico }}">
                                 @foreach($medicos as $medico)
-                                    <option value="{{ $medico->id }}"> {{ $medico->nome }} </option>
+                                    <option value="{{ $medico->id }}" {{ $medico->id == $agendamento->id_medico ? 'selected="selected"' : ''}}> {{ $medico->nome }} </option>
                                 @endforeach
                             </select>
                         </div>                  

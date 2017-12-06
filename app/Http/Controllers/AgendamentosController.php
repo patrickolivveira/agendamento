@@ -49,6 +49,8 @@ class AgendamentosController extends Controller
         $validator = \Validator::make($request->all(), [
             'descricao' => 'required|min:5',
             'datahora' => 'required',
+            'paciente_id' => 'required',
+            'medico_id' => 'required',            
         ]);
         if ($validator->fails()) {
             return back()->withErrors($validator);
@@ -85,8 +87,12 @@ class AgendamentosController extends Controller
     {
         $method = 'put';
         $agendamento = Agendamento::find($id);
+        $pacientes = Paciente::all();
+        $medicos = Medico::all();        
         return view('agendamentos.form')->with('method', $method)
-        ->with('agendamento', $agendamento);
+                                        ->with('agendamento', $agendamento)
+                                        ->with('pacientes', $pacientes)
+                                        ->with('medicos', $medicos);
     }
 
     /**
@@ -101,6 +107,8 @@ class AgendamentosController extends Controller
         $validator = \Validator::make($request->all(), [
             'descricao' => 'required|min:5',
             'datahora' => 'required',
+            'paciente_id' => 'required',
+            'medico_id' => 'required',            
         ]);
         if ($validator->fails()) {
             return back()->withErrors($validator);

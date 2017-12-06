@@ -19,6 +19,8 @@
                                 <th>Id</th>
                                 <th>Data/Hora</th>
                                 <th>Descrição</th>
+                                <th>Paciente</th>
+                                <th>Médico</th>
                                 <th>Editar</th>
                                 <th>Excluir</th>
                             </tr>
@@ -27,8 +29,10 @@
                             @foreach($agendamentos as $agendamento)
                             <tr>
                                 <td>{{ $agendamento->id }}</td>
-                                <td>{{ $agendamento->datahora }}</td>
+                                <td>{{ date("d/m/Y H:i:s", strtotime($agendamento->datahora)) }}</td>
                                 <td>{{ $agendamento->descricao }}</td>
+                                <td>{{ $agendamento->paciente->nome }}</td>
+                                <td>{{ $agendamento->medico->nome }}</td>
                                 <td><a href="{{ route('agendamentos.edit', $agendamento->id) }}" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></a></td>
                                  <td>
                                     <form action="{{ route('agendamentos.destroy', $agendamento->id ) }}" method="POST">

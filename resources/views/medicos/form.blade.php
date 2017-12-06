@@ -28,17 +28,17 @@
                     @endif
                         <div class="form-group">
                             <label for="nome">Nome</label>
-                            <input id="nome" type="text" name="nome" class="form-control" value="{{ $medico->nome }}"/>
+                            <input id="nome" type="text" name="nome" class="form-control" value="{{ $medico->nome }}" required/>
                         </div>
 
                         <div class="form-group">
                             <label for="crm">CRM</label>
-                            <input id="crm" type="text" name="crm" value="{{ $medico->crm }}" class="form-control"/>
+                            <input id="crm" type="text" name="crm" value="{{ $medico->crm }}" class="form-control" required/>
                         </div>
 
                         <div class="form-group">
                             <label for="telefone">Telefone</label>
-                            <input id="telefone" type="text" name="telefone" value="{{ $medico->telefone }}" class="form-control"/>
+                            <input id="telefone" type="text" name="telefone" value="{{ $medico->telefone }}" class="form-control telefone" required/>
                         </div>
 
                         <button type="submit" class="btn btn-primary">Salvar</button>
@@ -49,4 +49,24 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('external_js')    
+    <script src="http://digitalbush.com/wp-content/uploads/2014/10/jquery.maskedinput.js"></script>
+    <script type="text/javascript">
+        jQuery("input.telefone")
+        .mask("(99) 9999-9999?9")
+        .focusout(function (event) {  
+            var target, phone, element;  
+            target = (event.currentTarget) ? event.currentTarget : event.srcElement;  
+            phone = target.value.replace(/\D/g, '');
+            element = $(target);  
+            element.unmask();  
+            if(phone.length > 10) {  
+                element.mask("(99) 99999-999?9");  
+            } else {  
+                element.mask("(99) 9999-9999?9");  
+            }  
+        });
+    </script>    
 @endsection

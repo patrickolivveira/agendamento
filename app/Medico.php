@@ -10,6 +10,6 @@ class Medico extends Model
 
     public function agendamentos()
     {
-        return $this->hasMany('App\Agendamento');
+        return $this->hasMany(Agendamento::class, 'id_medico', 'id');
     }
 }
