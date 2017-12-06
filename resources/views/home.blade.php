@@ -2,9 +2,8 @@
 
 @section('content')
 <div class="container">
-    <div class="row">
-       
-    <div id="page-wrapper">
+    <div class="row margin_top_dash_info">       
+		<div id="page-wrapper">
 			<div class="row">
 				<div class="col-lg-4 col-md-4">
 					<div class="panel dash">

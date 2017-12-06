@@ -8376,6 +8376,10 @@ button.close {
   height: 55px;
 }
 
+.painel_form {
+  margin-top: 30%;
+}
+
 body,
 html {
   background-image: url(/img/bg-default.jpg);
@@ -8398,5 +8402,9 @@ html {
 
 .dash-qtde {
   font-size: 48px;
+}
+
+.margin_top_dash_info {
+  margin-top: 5%;
 }
 
