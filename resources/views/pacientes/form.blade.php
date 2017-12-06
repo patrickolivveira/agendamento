@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading">
+                <div class="panel-heading painel_cab">
                     Informe abaixo as informações do paciente
                 </div>
                 @if ($errors->any())
@@ -34,9 +34,8 @@
 
                         <div class="form-group">
                             <label for="sexo">Sexo</label><br/>
-                            {{ $paciente->sexo }}
-                            <label class="radio-inline"><input id="sexo" type="radio" name="sexo" value="M" checked="{{ $paciente->sexo == 'M' ? 'checked' : 'unchecked'  }}">Masculino</label>
-                            <label class="radio-inline"><input id="sexo" type="radio" name="sexo" value="F" checked="{{ $paciente->sexo == 'F' ? 'checked' : 'unchecked'  }}">Feminino</label>                        
+                            <label class="radio-inline"><input id="sexo" type="radio" name="sexo" value="M" {{ $paciente->sexo == 'M' ? 'checked="checked"' : ''}}>Masculino</label>
+                            <label class="radio-inline"><input id="sexo" type="radio" name="sexo" value="F" {{ $paciente->sexo == 'F' ? 'checked="checked"' : ''}}>Feminino</label>                            
                         </div>
 
                         <div class="form-group">

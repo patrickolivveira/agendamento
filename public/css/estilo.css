@@ -8374,6 +8374,8 @@ button.close {
 
 .painel_cab {
   height: 55px;
+  color: #3399ff !important;
+  font-size: 23px;
 }
 
 .painel_form {

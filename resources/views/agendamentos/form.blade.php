@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading">
+                <div class="panel-heading painel_cab">
                     Faça o agendamento da consulta médica
                 </div>
                 @if ($errors->any())

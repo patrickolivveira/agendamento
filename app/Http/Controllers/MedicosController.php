@@ -18,6 +18,12 @@ class MedicosController extends Controller
         return view('medicos.lista')->with('medicos', $medicos);
     }
 
+    // API
+    public function listaMedicos(){
+        $medicos = Medico::all();
+        return response()->json($medicos);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
