@@ -25,11 +25,10 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function principal()
     {
         $num_pacientes = Paciente::count();
         $num_medicos = Medico::count();
-        //$consultas_hoje = Agendamentos::count();
         $consultas_hoje = DB::table('agendamentos')
                                 ->whereDate('datahora', date('Y-m-d'))
                                 ->count();
