@@ -13,7 +13,7 @@
 									<i class="fa fa-user fa-5x"></i>
 								</div>
 								<div class="col-xs-9 text-right">
-									<div class="dash-qtde"></div>
+									<div class="dash-qtde">{{ $num_pacientes }}</div>
 								</div>
 							</div>
 						</div>

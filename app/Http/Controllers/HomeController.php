@@ -32,7 +32,6 @@ class HomeController extends Controller
         $consultas_hoje = DB::table('agendamentos')
                                 ->whereDate('datahora', date('Y-m-d'))
                                 ->count();
-        //DB::select('select count(*) as qtd from agendamentos where id = 5');
 
         return view('home')->with('num_pacientes', $num_pacientes)
                             ->with('num_medicos', $num_medicos)
